@@ -21,6 +21,65 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground)
 }
+
+@layer base {
+  h1 {
+    @apply text-4xl font-semibold tracking-tight leading-tight md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold tracking-tight leading-snug md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-snug;
+  }
+
+  h4 {
+    @apply text-xl font-medium leading-snug;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-[var(--foreground)];
+  }
+
+  small {
+    @apply text-sm opacity-70;
+  }
+
+  a {
+    @apply text-[var(--foreground)] hover:opacity-70 transition;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+@layer utilities {
+  .headers-modern {
+    @apply w-full h-[64px] sticky top-0 z-[999] flex items-center justify-center backdrop-blur-xl;
+
+    background: rgba(255, 255, 255, 0.65);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .header-nav {
+    @apply flex gap-10 text-sm font-medium;
+  }
+
+  .header-link {
+    @apply text-[var(--foreground)] hover:opacity-60 transition-opacity
+  }
+
+}
+
+
