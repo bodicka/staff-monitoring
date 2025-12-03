@@ -21,7 +21,8 @@
 
 body {
   background: var(--background);
-  color: var(--foreground)
+  color: var(--foreground);
+  min-height: 100vh;
 }
 
 @layer base {
@@ -58,10 +59,23 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+  /* --- Общие Классы Макет (Layout) --- */
+  /* Контейнер для всего приложения/страницы: центрирует контент и ограничивает ширину */
+  .app-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  /* Блок-обертка для секций: используется для карточек, панелей, боксов */
+  .section-box {
+    @apply bg-white dark:bg-zinc-900 p-6 rounded-xl shadow-lg border-gray-100 dark:border-zinc-800;
+  }
 
-
-@layer utilities {
+  /* --- Классы для Кнопок (Component) --- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors 
+    bg-blue-600 text-white hover:bg-blue-700
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+  /* --- Классы для Хедера (Layout/Header) --- */
   .headers-modern {
     @apply w-full h-[64px] sticky top-0 z-[999] flex items-center justify-center backdrop-blur-xl;
 
@@ -77,9 +91,10 @@ body {
   }
 
   .header-link {
-    @apply text-[var(--foreground)] hover:opacity-60 transition-opacity
+    @apply text-[var(--foreground)] hover:opacity-60 transition-opacity;
   }
 
+  .text-balance {
+    text-wrap: balance;
+  }
 }
-
-
