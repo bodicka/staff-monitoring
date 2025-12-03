@@ -1,14 +1,20 @@
-import { EmployeeDataType, HeaderDataType } from "@/types";
+import { styleLiActionsReports } from "@/constants";
+import {
+  ActionsReportsType,
+  EmployeeDataType,
+  HeaderDataType,
+  LatestEventsTypes,
+} from "@/types";
 
 export const headerData: HeaderDataType[] = [
   {
     id: 1,
     headerLink: "Home",
-    href: "/home",
+    href: "/",
   },
   {
     id: 2,
-    headerLink: "Dasboard",
+    headerLink: "Dashboard",
     href: "/dashboard",
   },
   {
@@ -34,3 +40,52 @@ export const testEmployeeData: EmployeeDataType = {
   todayHour: "7ч 45м",
   productivitiyScore: 88,
 };
+
+export const latestEvents: LatestEventsTypes[] = [
+  {
+    id: 1,
+    time: "10:05",
+    events: "Начало рабочего дня. Статус: Online.",
+  },
+  {
+    id: 2,
+    time: "14:00",
+    events: "Обнаружено отвлечение (YouTube).",
+  },
+  {
+    id: 3,
+    time: "15:30",
+    events: "Перерыв на обед. Статус: On Break.",
+  },
+  {
+    id: 4,
+    time: "16:30",
+    events: "Возвращение к работе.",
+  },
+  {
+    id: 5,
+    time: "20:30",
+    events: "Активность в IDE. Статус: Online.",
+  },
+];
+
+export const actionsReports: ActionsReportsType[] = [
+  {
+    id: 1,
+    href: "/dashboard",
+    className: styleLiActionsReports,
+    description: "Отчет по отвлечениям",
+  },
+  {
+    id: 2,
+    href: "/personal",
+    className: styleLiActionsReports,
+    description: "Сводка по неделе",
+  },
+  {
+    id: 3,
+    href: "/monitoring",
+    className: styleLiActionsReports,
+    description: "Текущий скриншот",
+  },
+];
