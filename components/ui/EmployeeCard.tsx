@@ -1,4 +1,4 @@
-import { statusClasses } from "@/constants";
+import { statusClasses } from "@/lib/constants";
 import { EmployeeCardProps } from "@/types";
 import Image from "next/image";
 

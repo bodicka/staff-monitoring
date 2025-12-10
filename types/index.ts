@@ -1,5 +1,3 @@
-import { JSX } from "react";
-
 export type HeaderDataType = {
   id: number;
   headerLink: string;
@@ -7,14 +5,24 @@ export type HeaderDataType = {
 };
 
 export type EmployeeDataType = {
-  id: number;
+  id: string;
   name: string;
   position: string;
+  role: "Frontend" | "Backend" | "Designer" | "QA";
   status: "online" | "offline" | "on-break" | "in-meeting";
   avatarUrl: string;
   lastActive: string;
   todayHour: string;
   productivitiyScore: number;
+  timeSpenOnTasks: number;
+  timeSpentOnDistractions: number;
+};
+
+export type DashboardSummary = {
+  totalEmployees: number;
+  activeToday: number;
+  averageProductivity: number;
+  distractionPercentage: number;
 };
 
 export interface EmployeeCardProps {
@@ -24,7 +32,7 @@ export interface EmployeeCardProps {
 export interface MetrickBoxProps {
   title: string;
   value: string;
-  icon: React.ReactNode;
+  iconName: QuickMetrickTypes["iconName"];
   color: string;
 }
 
@@ -35,12 +43,18 @@ export type LatestEventsTypes = {
 };
 
 export type QuickMetrickTypes = {
-  id: number;
+  id: string;
   title: string;
   value: string;
-  icon: JSX.Element;
+  iconName:
+    | "Zap"
+    | "BarChart2"
+    | "Clock"
+    | "Users"
+    | "TrendingUp"
+    | "AlertTriangle";
   color: string;
-}
+};
 
 export type ActionsReportsType = {
   id: number;
@@ -49,3 +63,14 @@ export type ActionsReportsType = {
   description: string;
 };
 
+export type EmployeeEvent = {
+  id: string;
+  employeeId: string;
+  employeeName: string;
+  role: EmployeeDataType["role"];
+  time: string;
+  events: string;
+  status?: EmployeeDataType["status"];
+  category?: "task" | "distraction" | "meeting" | "other";
+  duration?: string;
+};

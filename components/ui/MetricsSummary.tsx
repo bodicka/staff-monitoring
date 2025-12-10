@@ -1,31 +1,6 @@
-import { QuickMetrickTypes } from "@/types";
-import { BarChart2, Clock, Zap } from "lucide-react";
 import MetricBox from "./MetricBox";
-import { actionsReports } from "@/data";
-
-const quickMetrikData: QuickMetrickTypes[] = [
-  {
-    id: 1,
-    title: "Онлайн Сотрудников",
-    value: "15 / 20",
-    icon: <Zap className="w-5 h-5" />,
-    color: "bg-green-600",
-  },
-  {
-    id: 2,
-    title: "Общая Продуктивность",
-    value: "78%",
-    icon: <BarChart2 className="w-5 h-5" />,
-    color: "bg-blue-600",
-  },
-  {
-    id: 3,
-    title: "Среднее Время Работы",
-    value: "6.5 ч",
-    icon: <Clock className="w-5 h-5" />,
-    color: "bg-purple-600",
-  },
-];
+import { actionsReports, quickMetrikDataHome } from "@/data";
+import Link from "next/link";
 
 const MetricsSummary = () => {
   return (
@@ -33,12 +8,12 @@ const MetricsSummary = () => {
       <h2>Сводка по Команде</h2>
       <p className="text-sm opacity-70 -mt-4">Ключевые показатели сегодня.</p>
       {/* Быстрые Метрики */}
-      {quickMetrikData.map((data, idx) => (
+      {quickMetrikDataHome.map((data) => (
         <MetricBox
-          key={idx}
+          key={data.id}
           title={data.title}
           value={data.value}
-          icon={data.icon}
+          iconName={data.iconName}
           color={data.color}
         />
       ))}
@@ -47,9 +22,9 @@ const MetricsSummary = () => {
         <ul className="space-y-2 mt-3">
           {actionsReports.map((actions, index) => (
             <li key={index}>
-              <a className={actions.className} href={actions.href}>
+              <Link className={actions.className} href={actions.href}>
                 {actions.description}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
